@@ -17,7 +17,7 @@
             <div class="container">
 
                 <div class="content project_title">
-                    <h1>Unbiased Sequential Recommendation with Latent Confounders</h1>
+                    <h1>Sequential Recommendation with Adaptive Preference Disentanglement</h1>
                 </div>
 
                 <div class="content project_headline">
@@ -33,20 +33,23 @@
                 <div class="content">
                     <div class="text">
                         <h1>1. Abstract</h1>
-                        <p><font size=3>Sequential recommendation holds the promise of understanding user preference by capturing successive behavior correlations.
-Existing research essentially focus on designing different models for better fitting the offline datasets.
-However, the observational data may have been contaminated by the exposure or selection biases, which renders the learned sequential models unreliable.
-In order to solve this fundamental problem, in this paper, we propose to reformulate the sequential recommendation task with the potential outcome framework, where we are able to clearly understand the data bias mechanism and correct it by re-weighting the training instances with the inverse propensity score (IPS).
-For more robustness modeling, a clipping strategy is applied to the IPS estimation to reduce the variance of the learning objective. 
-To make our framework more practical, we design a parameterized model to remove the impact of the potential latent confounders.
-At last, we theoretically analysis the unbiasedness of the proposed framework under both vanilla and clipping IPS estimations.
-We conduct extensive experiment based on both synthetic and real-world datasets to demonstrate the effectiveness of our framework.</font></p>
+                        <p><font size=3>Sequential recommendation holds the promise of being able to infer user preference from the history information.
+Existing methods mostly assume coherent user preference in the history information, and deploy a unified model to predict the next behavior.
+However, user preferences are naturally diverse, and different users may enjoy their own personalities, which makes the history information mixed of heterogeneous user preferences.
+Inspired by this practical consideration, in this paper, we proposed a novel sequential recommender model by disentangling different user preferences.
+The main building block of our idea is a behavior allocator, which determines how many sub-sequences the history information should be decomposed into, and how to allocate each item into these sub-sequences.
+In particular, we regard the disentanglement of user preference as a Markov decision process, and design a reinforcement learning method to implement the behavior allocator.
+The reward in our model is designed to assign the target item to the nearest sub-sequence, and simultaneously encourage orthogonality between the generated sub-sequences.
+To make the disentangled sub-sequences not too sparse, we introduce a curriculum reward, which adaptively penalizes the action of creating a new sub-sequence.
+We conduct extensive experiments based on real-world datasets, and compare with many state-of-the-art models to verify the effectiveness of our model.
+Empirical studies manifest that our model can on average improve the performance by about 7.42$\%$ and 11.98$\%$ on metrics NDCG and MRR, respectively.
+For reproducing our experiments and promoting this research direction, we have released our project at https://no-one-xxx.github.io/Adasplit/.</font></p>
                     </div>
                 </div>
 
                 <div class="content">
                     <div class="text">
-                        <h1>2. Illustration of the exposure bias in sequential recommendation. </h1>
+                        <h1>2. Sequential Recommendation with Adaptive Preference\\ Disentanglement. </h1>
                         <div class="content project_headline">
                         <div class="img" style="text-align:center">
                             <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:80%">
@@ -67,7 +70,7 @@ opportunities to be observed and optimized.</font></p>
                             <img class="img_responsive" src="asset/all.png" alt="Intro" style="margin:auto;max-width:80%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 2:Illustration of Our framework for Unbiased Sequential Recommendation with Latent Confounders  </font></p>
+                            <p><font size=3>Figure 2:Illustration of Our framework for Sequential Recommendation with Adaptive Preference\\ Disentanglement  </font></p>
                         </div>
 
 						<div class="content">
