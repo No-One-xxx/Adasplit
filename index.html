@@ -55,12 +55,7 @@ For reproducing our experiments and promoting this research direction, we have r
                             <img class="img_responsive" src="intro.png" alt="Intro" style="margin:auto;max-width:80%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 1: The observed interaction between the
-user and the item is jointly determined by the exposure
-of the item and the user underlying sequential preference.
-While many items (e.g., B, C) can also reveal user sequential
-preference, they are not recommended, and thus have less
-opportunities to be observed and optimized.</font></p>
+                            <p><font size=3>Figure 1: Illustration of user diverse preferences, where different users may have various personalities, and thus has different number of interests in their behavior sequence.</font></p>
                         </div>
 						<div class="content">
                     <div class="text">
@@ -77,10 +72,11 @@ opportunities to be observed and optimized.</font></p>
 						<h3>Contributions</h3>
                             <p><ul class="download">
 							<font size=3>
-                            <li> We propose to solve the sequential recommendation task within the potential outcome framework for data bias correction, which, to the best of our knowledge, is the first time in the recommendation domain.</li>
-							<li>To realize the above idea, we design a three-channel GRU model to simultaneously capture the item correlations, model the latent confounders and estimate the IPS. </li>
-							<li>We analyze the unbiasedness of the proposed model from both expectation and variance perspectives, which builds the theoretical foundations of our model. </li>
-                            <li>We conduct extensive experiments based on both synthetic and real-world datasets to evaluate our proposed models.</li>
+                            <li> We proposed to build sequential recommender models by adaptively disentangling user preferences, which, to the best of our knowledge, is the first time in the recommendation domain.</li>
+							<li>To achieve the above idea, we design a reinforcement learning (RL) model to allocate user behaviors and adaptively create new sub-sequences, which captures the evolving nature of user preference. </li>
+							<li>We conduct extensive experiments on four datasets with several benchmarks to demonstrate the effectiveness of our model and the ,
+and, we have released our project at https://no-one-xxx.github.io/
+Adasplit/.<li>
                             </font>
                         </ul></p>
                         </div>
