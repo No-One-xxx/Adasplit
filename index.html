@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" class="gr__shape2prog_csail_mit_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 
               <meta name="viewport" content="width=device-width, initial-scale=1">    <link rel="shortcut icon" href="http://shape2prog.csail.mit.edu/images/favicon.ico">
-        <meta name="description" content="Counterfactual Data-Augmented Sequential Recommendation">
-        <meta name="keywords" content="Counterfactual Data-Augmented, Sequential Recommendation">
+        <meta name="description" content="Sequential Recommendation with Decomposed Item Feature Routing">
+        <meta name="keywords" content="Sequential Recommendation with Decomposed Item Feature Routing">
 
         <title>Sequential Recommendation</title>
-        <link rel="stylesheet" href="font.css">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="asset/font.css">
+        <link rel="stylesheet" href="asset/main.css">
 
     </head>
 
@@ -17,7 +17,7 @@
             <div class="container">
 
                 <div class="content project_title">
-                <h1>Sequential Recommendation with Adaptive Preference Disentanglement</h1>
+                    <h1>Sequential Recommendation with Decomposed Item Feature Routing</h1>
                 </div>
 
                 <div class="content project_headline">
@@ -27,51 +27,55 @@
                 </div>
 
 
-             
+                
 
 
                 <div class="content">
                     <div class="text">
                         <h1>1. Abstract</h1>
-                        <p><font size=3>Sequential recommendation holds the promise of being able to infer user preference from the history information.
-Existing methods mostly assume coherent user preference in the history information, and deploy a unified model to predict the next behavior.
-However, user preferences are naturally diverse, and different users may enjoy their own personalities, which makes the history information mixed of heterogeneous user preferences.
-Inspired by this practical consideration, in this paper, we proposed a novel sequential recommender model by disentangling different user preferences.
-The main building block of our idea is a behavior allocator, which determines how many sub-sequences the history information should be decomposed into, and how to allocate each item into these sub-sequences.
-In particular, we regard the disentanglement of user preference as a Markov decision process, and design a reinforcement learning method to implement the behavior allocator.
-The reward in our model is designed to assign the target item to the nearest sub-sequence, and simultaneously encourage orthogonality between the generated sub-sequences.
-To make the disentangled sub-sequences not too sparse, we introduce a curriculum reward, which adaptively penalizes the action of creating a new sub-sequence.
-We conduct extensive experiments based on real-world datasets, and compare with many state-of-the-art models to verify the effectiveness of our model.
-Empirical studies manifest that our model can on average improve the performance by about 7.42% and 11.98% on metrics NDCG and MRR, respectively.
-For reproducing our experiments and promoting this research direction, we have released our project at https://no-one-xxx.github.io/Adasplit/.</font></p>
+                        <p><font size=3>equential recommendation basically aims to capture user evolving preference. Intuitively, a user interacts with an item usually
+                            because of some specific feature, and user evolving preference is
+                            essentially determined by a series of important features along the
+                            time line. However, existing sequential models usually represent
+                            each item by a unified embedding, which fails to distinguish item
+                            features, let along modeling the feature sequences. To bridge this
+                            gap, in this paper, we propose a novel sequential recommender
+                            model by learning the key item feature sequences underlying user
+                            behaviors, which facilitates more focused model optimization and
+                            better recommendation performance. To achieve this goal, we firstly
+                            represent each item by explicit or latent features, and then build
+                            both soft and hard models to route optimal feature sequences. More
+                            specifically, in the soft model, we design a 2D attention mechanism,
+                            which simultaneously distinguishes the importances of the items in
+                            a sequence and the features for the same item. For the hard model,
+                            we regard the feature routing problem as a Markov decision process,
+                            and propose a reinforcement learning method to generate feature
+                            sequences, which can lead to the lowered negative log-likelihood.
+                            In the experiments, we compare our model with the state-of-the-art
+                            methods based on real-world datasets, where we can empirically
+                            demonstrate 8.2% and 16.1% improvements of our model on NDCG
+                            and MRR, respectively.</font></p>
                     </div>
                 </div>
+
                 <div class="content">
                     <div class="text">
+                        <h1>2. A Toy Example of Our Idea </h1>
                         <div class="content project_headline">
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="intro.png" alt="Intro" style="margin:auto;max-width:80%">
+                            <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:80%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 1: Illustration of user diverse preferences, where different users may have various personalities, and thus has different number of interests in their behavior sequence.</font></p>
+                            <p><font size=3>Figure 1: Examples of user sequential behaviors and the illustration of decomposed item features routing.</font></p>
                         </div>
 						<div class="content">
-                    <div class="text">
-						 <h1>3. Illustration of Our framework. </h1>
-                        <div class="content project_headline">
-                        <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="all.png" alt="Intro" style="margin:auto;max-width:80%">
-                        </div>
-                        <div class="text">
-                            <p><font size=3>Figure 2:Illustration of Our framework for Sequential Recommendation with Adaptive Preference Disentanglement  </font></p>
-                        </div>
 
-						<div class="content">
 						<h3>Contributions</h3>
                             <p><ul class="download">
 							<font size=3>
-                            <li> We proposed to build sequential recommender models by adaptively disentangling user preferences, which, to the best of our knowledge, is the first time in the recommendation domain.</li>
-							<li>To achieve the above idea, we design a reinforcement learning (RL) model to allocate user behaviors and adaptively create new sub-sequences, which captures the evolving nature of user preference. </li><li>We conduct extensive experiments on four datasets with several benchmarks to demonstrate the effectiveness of our model and the ,and, we have released our project at https://no-one-xxx.github.io/Adasplit/.<li>
+                            <li> We propose to build sequential recommender models by learning the key item feature sequences determining user behaviors, which, to the best of our knowledge, is the first time in the recommendation domain.</li>
+							<li>To achieve the above idea, we explore both explicit and latent methods for defining item features, and also propose both soft and hard methods for routing key feature sequences. </li>
+							<li>We conduct extensive experiments to demonstrate the effectiveness of our propose models </li>
                             </font>
                         </ul></p>
                         </div>
@@ -85,10 +89,10 @@ For reproducing our experiments and promoting this research direction, we have r
 
                     <div class="content project_headline">
 					<div class="text">
-                            <p><font size=3>Table 1: Overall comparison between the baselines and our models(the last four lines).</font></p>
+                            <p><font size=3>Table 1: Overall comparison between the baselines and our models.</font></p>
                         </div>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="result.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/result.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                     </div>
@@ -98,54 +102,32 @@ For reproducing our experiments and promoting this research direction, we have r
                     <div class="text">
                         <h1>4. Code and Datasets</h1>
 
-						<h2> 4.1 Code <a href="https://drive.google.com/drive/folders/1KYeqPq-7gYrvIxQa9MQ_rL9iZ0OAPf_Q?usp=sharing">[link:Google Driver]</font></a></h2>
+						<h2> 4.1 Code <a href="https://drive.google.com/drive/folders/1h2g5mklUqwB7I1Z-XxJCQXSHQo7D8ckA?usp=sharing">[link:Google Driver]</font></a></h2>
 						
-						<div class="content project_headline">
-						<div class="text">
-                            <p><font size=3>Table 2: Structure of the code files [main program].</font></p>
-					
-                        
-                        
-                        </div>
-                        <h2>4.2 Datasets <a href="https://drive.google.com/drive/folders/1so0lckI6N6_niVEYaBu-LIcpOdZf99kj">[link:Google Driver]</a></font></h2>
+
+                        <h2>4.2 Datasets <a href="https://drive.google.com/drive/folders/11qLfLQ1pFO0olZ8mnp6bL3UTsYUtLLyD?usp=sharing">[link:Google Driver]</a></font></h2>
 						<div class="content project_headline">
 						<div class="text">
                             <p><font size=3>Table 3: Statistics of the datasets used in our experiments.</font></p>
                         </div>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="data.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/data.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                         </div>
                     </div>
                 </div>
 
-
-                <div class="content">
-                    <div class="text">
-                        <h1>5. Usage</h1>
-						<p> <font size=4>5.1. Download the code</font></p>
-						<p> <font size=4>5.2. Download the dataset, and put it into data/dataset name/ folder.</font></p>
-						<p> <font size=4>5.3. run main.py file.</font></p>
-						<font size=3>
-                        <p> For example: python run_recbole.py .</p>
-                        where lr denotes learning rate  and clip  denotes  clipping strategy, more specifically, when we set clip == 0, that means without clipping strategy.
-                    </div>
-                </div>
                
                 <div class="content">
                     <div class="text">
-                        <h1>6. Detailed Parameter Search Ranges</h1>
+                        <h1>5. Detailed Parameter Search Ranges</h1>
 						<ul class="download">
 						<font size=3>
                             <li><p>Learning rate: [0.1,0.01,0.001,0.0001]</p></li>
-							<li><p>Batch size: [128,256,512,1024]</p></li>
-							<li><p>Hidden size:[32,64,128,256]</p></li>
-							<li><p>Thresholds:[0.2,0.3,0.4,0.5,0.6,0.7,0.8]</p></li>
-							<li><p>Lambda_orthogonal_and_select_reward:[1,0.1,0.01,0.001]</p></li>
-							<li><p>Inner size:[32,64,128,256]</p></li>
-							<li><p>num_layers:[1,2,3]</p></li>
-							<li><p>Increasing_one_more_interest_generated:[0.9,1,1.1,1.2,1.3]</p></li>
+							<li><p>Embedding size:[32,64,128,256,512]</p></li>
+							<li><p>Dropout rate: [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.99]</p></li>
+                            <li><p>K: [2,3,4,5,6,7,8,9,10]</p></li>
 						</font>
                         </ul>
 						
@@ -155,7 +137,7 @@ For reproducing our experiments and promoting this research direction, we have r
 
                 <div class="content">
                     <div class="text">
-                        <h1>7. Runtime Environment</h1>
+                        <h1>6. Runtime Environment</h1>
 						<ul class="download">
 						<font size=3>
                             <li><p>System:Linux dell-PowerEdge-R730</p></li>
