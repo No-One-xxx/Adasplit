@@ -33,28 +33,17 @@
                 <div class="content">
                     <div class="text">
                         <h1>1. Abstract</h1>
-                        <p><font size=3>equential recommendation basically aims to capture user evolving preference. Intuitively, a user interacts with an item usually
-                            because of some specific feature, and user evolving preference is
-                            essentially determined by a series of important features along the
-                            time line. However, existing sequential models usually represent
-                            each item by a unified embedding, which fails to distinguish item
-                            features, let along modeling the feature sequences. To bridge this
-                            gap, in this paper, we propose a novel sequential recommender
-                            model by learning the key item feature sequences underlying user
-                            behaviors, which facilitates more focused model optimization and
-                            better recommendation performance. To achieve this goal, we firstly
-                            represent each item by explicit or latent features, and then build
-                            both soft and hard models to route optimal feature sequences. More
-                            specifically, in the soft model, we design a 2D attention mechanism,
-                            which simultaneously distinguishes the importances of the items in
-                            a sequence and the features for the same item. For the hard model,
-                            we regard the feature routing problem as a Markov decision process,
-                            and propose a reinforcement learning method to generate feature
-                            sequences, which can lead to the lowered negative log-likelihood.
-                            In the experiments, we compare our model with the state-of-the-art
-                            methods based on real-world datasets, where we can empirically
-                            demonstrate 8.2% and 16.1% improvements of our model on NDCG
-                            and MRR, respectively.</font></p>
+                        <p><font size=3>Sequential recommendation holds the promise of being able to infer user preference from the history information.
+Existing methods mostly assume coherent user preference in the history information, and deploy a unified model to predict the next behavior.
+However, user preferences are naturally diverse, and different users may enjoy their own personalities, which makes the history information mixed of heterogeneous user preferences.
+Inspired by this practical consideration, in this paper, we proposed a novel sequential recommender model by disentangling different user preferences.
+The main building block of our idea is a behavior allocator, which determines how many sub-sequences the history information should be decomposed into, and how to allocate each item into these sub-sequences.
+In particular, we regard the disentanglement of user preference as a Markov decision process, and design a reinforcement learning method to implement the behavior allocator.
+The reward in our model is designed to assign the target item to the nearest sub-sequence, and simultaneously encourage orthogonality between the generated sub-sequences.
+To make the disentangled sub-sequences not too sparse, we introduce a curriculum reward, which adaptively penalizes the action of creating a new sub-sequence.
+We conduct extensive experiments based on real-world datasets, and compare with many state-of-the-art models to verify the effectiveness of our model.
+Empirical studies manifest that our model can on average improve the performance by about 7.42$\%$ and 11.98$\%$ on metrics NDCG and MRR, respectively.
+For reproducing our experiments and promoting this research direction, we have released our project at https://no-one-xxx.github.io/Adasplit/.</font></p>
                     </div>
                 </div>
 
