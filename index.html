@@ -17,7 +17,7 @@
             <div class="container">
 
                 <div class="content project_title">
-                    <h1>Sequential Recommendation with Adaptive Preference Disentanglement</h1>
+                    <h1>Sequential Recommendation with User Evolving Preference Decomposition</h1>
                 </div>
 
                 <div class="content project_headline">
@@ -33,16 +33,18 @@
                 <div class="content">
                     <div class="text">
                         <h1>1. Abstract</h1>
-                        <p><font size=3>Sequential recommendation holds the promise of being able to infer user preference from the history information.
-Existing methods mostly assume coherent user preference in the history information, and deploy a unified model to predict the next behavior.
-However, user preferences are naturally diverse, and different users may enjoy their own personalities, which makes the history information mixed of heterogeneous user preferences.
-Inspired by this practical consideration, in this paper, we proposed a novel sequential recommender model by disentangling different user preferences.
-The main building block of our idea is a behavior allocator, which determines how many sub-sequences the history information should be decomposed into, and how to allocate each item into these sub-sequences.
-In particular, we regard the disentanglement of user preference as a Markov decision process, and design a reinforcement learning method to implement the behavior allocator.
-The reward in our model is designed to assign the target item to the nearest sub-sequence, and simultaneously encourage orthogonality between the generated sub-sequences.
-To make the disentangled sub-sequences not too sparse, we introduce a curriculum reward, which adaptively penalizes the action of creating a new sub-sequence.
-We conduct extensive experiments based on real-world datasets, and compare with many state-of-the-art models to verify the effectiveness of our model.
-Empirical studies manifest that our model can on average improve the performance by about 7.42% and 11.98% on metrics NDCG and MRR, respectively.
+                        <p><font size=3>Modeling user sequential behaviors has recently attracted increasing attention in the recommendation domain.
+Existing methods mostly assume that user preferences are coherent in the same behavior sequence.
+However, user personalities are volatile and easily changed, and there can be multiple mixed preferences in user sequential behaviors.
+In order to bridge this gap, in this paper, we propose to decompose user evolving preferences for building sequential recommender models.
+The main building block of our idea is an item allocator, which decomposes the whole user behavior sequence into many shorter sub-sequences.
+Ideally, each sub-sequence should well reflect the evolution of a thread of user preference, and different threads should be as independent as possible.
+At the same time, we argue that the number of sub-sequences should be adaptively determined by considering the dynamic and evolving natures of user behaviors.
+To satisfy these requirements, we design a reinforcement learning method to implement the item allocator, and generate different sub-sequences via simulating the evolution of user preferences.
+More specifically, the action aims to allocate each item into a sub-sequence or create a new one according to how the previous items are decomposed.
+The reward is associated with the final loss of the learning objective, encouraging to generate sub-sequences which can better fit the training data.
+We conduct extensive experiments based on six real-world datasets across different domains.
+Comparing with the state-of-the-art methods, empirical studies manifest that our model can on average improve the performance by about 8.21\%, 12.68\%, 8.69\% and 4.33\% on the metrics of Precision, Recall, NDCG and MRR, respectively.
 For reproducing our experiments and promoting this research direction, we have released our project at https://no-one-xxx.github.io/SPLIT/.</font></p>
                     </div>
                 </div>
